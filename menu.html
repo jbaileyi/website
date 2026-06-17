@@ -20,30 +20,6 @@
       --subtle: #8A9B8C;
       --white: #FFFFFF;
 
-      --day1: #7A```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Longevity Meal Plan · June 14–18</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --forest: #1A2E1F;
-      --sage: #7A9E7E;
-      --mist: #E8EDE9;
-      --cream: #F7F5F0;
-      --gold: #C8A96E;
-      --text: #2C3A2E;
-      --subtle: #8A9B8C;
-      --white: #FFFFFF;
-
       --day1: #7A9E7E;
       --day2: #C8A96E;
       --day3: #8BAFC4;
@@ -182,6 +158,8 @@
       font-weight: 500;
       padding: 4px 10px;
       border-radius: 100px;
+      background: var(--mist);
+      color: var(--text);
     }
 
     .card-divider {
@@ -225,6 +203,7 @@
       border-radius: 50%;
       background: var(--sage);
       margin-top: 6px;
+      flex-shrink: 0;
     }
 
     .ingredient-note {
@@ -252,6 +231,7 @@
       content: counter(step);
       width: 20px;
       height: 20px;
+      min-width: 20px;
       border-radius: 50%;
       background: var(--forest);
       color: var(--white);
@@ -341,6 +321,18 @@
     }
 
     footer strong { color: var(--sage); }
+
+    @media (max-width: 560px) {
+      .card-inner {
+        padding: 20px 20px 24px 28px;
+      }
+      .card-body {
+        grid-template-columns: 1fr;
+      }
+      .card-day-num {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 
@@ -592,11 +584,10 @@
   </article>
 
   <section class="supplements" id="supplements">
-    <h2 class="supplements-title">Supplement Rhythm for a Single Daily Meal</h2>
+    <h2 class="supplements-title">Supplement Rhythm</h2>
     <p class="supplements-sub">
       This stack assumes one main meal later in the day, with a long fasting window. It pairs each supplement with the meal
       composition and fasting periods to support mitochondrial function, glycation control, autophagy, and antioxidant balance.
-      Always review supplements with a clinician before starting or combining them.
     </p>
 
     <div class="supp-grid">
