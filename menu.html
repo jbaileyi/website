@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Longevity Meal Plan · June 14–18</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --forest:   #1A2E1F;
-      --sage:     #7A9E7E;
-      --mist:     #E8EDE9;
-      --cream:    #F7F5F0;
-      --gold:     #C8A96E;
-      --text:     #2C3A2E;
-      --subtle:   #8A9B8C;
-      --white:    #FFFFFF;
+      --forest: #1A2E1F;
+      --sage: #7A9E7E;
+      --mist: #E8EDE9;
+      --cream: #F7F5F0;
+      --gold: #C8A96E;
+      --text: #2C3A2E;
+      --subtle: #8A9B8C;
+      --white: #FFFFFF;
 
       --day1: #7A9E7E;
       --day2: #C8A96E;
@@ -28,15 +28,11 @@
       --day5: #9E7A8A;
     }
 
-    html { scroll-behavior: smooth; }
-
     body {
       background: var(--cream);
       color: var(--text);
       font-family: 'Inter', sans-serif;
-      font-weight: 400;
       line-height: 1.6;
-      min-height: 100vh;
     }
 
     .hero {
@@ -44,15 +40,6 @@
       padding: 64px 32px 40px;
       text-align: center;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 120%, #2E5C38 0%, transparent 70%);
-      pointer-events: none;
     }
 
     .hero-eyebrow {
@@ -68,7 +55,6 @@
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2.4rem, 6vw, 4.2rem);
       color: var(--white);
-      line-height: 1.1;
       margin-bottom: 16px;
     }
 
@@ -83,7 +69,6 @@
       max-width: 520px;
       margin: 0 auto 28px;
       font-weight: 300;
-      line-height: 1.7;
     }
 
     .date-nav {
@@ -102,60 +87,6 @@
       border: 1px solid rgba(255,255,255,0.18);
       color: rgba(255,255,255,0.65);
       text-decoration: none;
-      transition: all 0.2s ease;
-      background: transparent;
-    }
-
-    .date-pill:hover {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-      border-color: rgba(255,255,255,0.35);
-    }
-
-    .hero-input-wrap {
-      max-width: 520px;
-      margin: 0 auto;
-      background: rgba(0,0,0,0.22);
-      border-radius: 999px;
-      padding: 6px 8px 6px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .hero-input-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.7);
-      white-space: nowrap;
-    }
-
-    .hero-input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      color: var(--white);
-      font-size: 13px;
-      outline: none;
-    }
-
-    .hero-input::placeholder {
-      color: rgba(255,255,255,0.45);
-    }
-
-    .hero-input-button {
-      border: none;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--forest);
-      cursor: pointer;
     }
 
     .main {
@@ -165,17 +96,11 @@
     }
 
     .meal-card {
-      position: relative;
       background: var(--white);
       border-radius: 16px;
-      overflow: hidden;
       margin-bottom: 32px;
       box-shadow: 0 2px 16px rgba(26,46,31,0.06);
-      transition: box-shadow 0.25s ease;
-    }
-
-    .meal-card:hover {
-      box-shadow: 0 6px 32px rgba(26,46,31,0.1);
+      position: relative;
     }
 
     .card-accent {
@@ -197,9 +122,7 @@
 
     .card-header {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
       margin-bottom: 14px;
     }
 
@@ -215,32 +138,13 @@
     .card-title {
       font-family: 'DM Serif Display', serif;
       font-size: 1.5rem;
-      line-height: 1.2;
       color: var(--forest);
     }
 
     .card-day-num {
       font-family: 'DM Serif Display', serif;
       font-size: 3rem;
-      line-height: 1;
       color: var(--mist);
-      flex-shrink: 0;
-      user-select: none;
-    }
-
-    .meal-image {
-      width: 100%;
-      border-radius: 12px;
-      margin: 10px 0 4px;
-      object-fit: cover;
-      max-height: 180px;
-      background: #d9e2d9;
-    }
-
-    .image-caption {
-      font-size: 11px;
-      color: var(--subtle);
-      margin-bottom: 10px;
     }
 
     .compounds {
@@ -255,31 +159,18 @@
       font-weight: 500;
       padding: 4px 10px;
       border-radius: 100px;
-      letter-spacing: 0.03em;
     }
-
-    .meal-card:nth-of-type(1) .compound-badge { background: #EAF3EB; color: #2D6B36; }
-    .meal-card:nth-of-type(2) .compound-badge { background: #F7F0E3; color: #7A5A1A; }
-    .meal-card:nth-of-type(3) .compound-badge { background: #E5EEF5; color: #2A5470; }
-    .meal-card:nth-of-type(4) .compound-badge { background: #F5EDE3; color: #7A4A1A; }
-    .meal-card:nth-of-type(5) .compound-badge { background: #F0E5ED; color: #6B2A50; }
 
     .card-divider {
       height: 1px;
       background: var(--mist);
-      margin: 0 0 18px;
+      margin-bottom: 18px;
     }
 
     .card-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-    }
-
-    @media (max-width: 560px) {
-      .card-body { grid-template-columns: 1fr; }
-      .card-inner { padding: 22px 22px 24px 30px; }
-      .card-day-num { font-size: 2rem; }
     }
 
     .section-label {
@@ -299,12 +190,9 @@
     }
 
     .ingredients li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
       font-size: 13.5px;
-      line-height: 1.5;
-      color: var(--text);
+      display: flex;
+      gap: 8px;
     }
 
     .ingredients li::before {
@@ -313,7 +201,6 @@
       height: 5px;
       border-radius: 50%;
       background: var(--sage);
-      flex-shrink: 0;
       margin-top: 6px;
     }
 
@@ -321,20 +208,6 @@
       font-size: 11px;
       color: var(--subtle);
       font-style: italic;
-      margin-left: 4px;
-    }
-
-    .no-cook-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 500;
-      color: #2D6B36;
-      background: #EAF3EB;
-      padding: 3px 10px;
-      border-radius: 100px;
-      margin-bottom: 10px;
     }
 
     .prep-steps ol {
@@ -346,19 +219,15 @@
     }
 
     .prep-steps ol li {
+      counter-increment: step;
+      font-size: 13.5px;
       display: flex;
       gap: 10px;
-      font-size: 13.5px;
-      line-height: 1.5;
-      counter-increment: step;
-      color: var(--text);
     }
 
     .prep-steps ol li::before {
       content: counter(step);
-      font-size: 10px;
-      font-weight: 600;
-      min-width: 20px;
+      width: 20px;
       height: 20px;
       border-radius: 50%;
       background: var(--forest);
@@ -366,7 +235,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 600;
       margin-top: 2px;
     }
 
@@ -425,10 +295,6 @@
       margin-left: 14px;
     }
 
-    .supp-list li {
-      margin-bottom: 4px;
-    }
-
     footer {
       text-align: center;
       padding: 28px 24px 40px;
@@ -437,19 +303,17 @@
       border-top: 1px solid var(--mist);
     }
 
-    footer strong { color: var(--sage); font-weight: 600; }
-
-    .anchor-target { scroll-margin-top: 24px; }
+    footer strong { color: var(--sage); }
   </style>
 </head>
+
 <body>
 
 <header class="hero">
   <p class="hero-eyebrow">Weekly Meal Plan</p>
   <h1>Eat for<br><em>Longevity</em></h1>
-  <p class="hero-sub">
-    Five low‑AGE, anti‑inflammatory meals plus one fasting day. Built around bioactive compounds that support cellular repair, mitochondrial health, and graceful aging.
-  </p>
+  <p class="hero-sub">Five low‑AGE, anti‑inflammatory meals plus one fasting day. Built around bioactive compounds that support cellular repair and mitochondrial health.</p>
+
   <nav class="date-nav">
     <a class="date-pill" href="#day1">Sun Jun 14</a>
     <a class="date-pill" href="#day2">Mon Jun 15</a>
@@ -457,303 +321,212 @@
     <a class="date-pill" href="#day4">Wed Jun 17</a>
     <a class="date-pill" href="#day5">Thu Jun 18</a>
   </nav>
-
-  <form class="hero-input-wrap" onsubmit="event.preventDefault();">
-    <span class="hero-input-label">Your tweak</span>
-    <input class="hero-input" type="text" placeholder="Add a note, swap an ingredient, or paste a supplement you’re testing…" />
-    <button class="hero-input-button" type="submit">Save</button>
-  </form>
 </header>
 
 <main class="main">
 
-  <!-- DAY 1 -->
-  <article class="meal-card anchor-target" id="day1">
+  <article class="meal-card" id="day1">
     <div class="card-accent"></div>
     <div class="card-inner">
       <div class="card-header">
         <div>
           <p class="card-date-label">Sunday · June 14</p>
-          <h2 class="card-title">Poached Salmon &amp;<br>Broccoli Sprouts</h2>
-          <img class="meal-image" src="https://via.placeholder.com/720x360?text=Poached+Salmon+%2B+Broccoli+Sprouts" alt="Poached salmon with broccoli sprouts on a plate">
-          <p class="image-caption">Gentle poaching keeps AGEs low while preserving omega‑3s and delicate proteins.</p>
+          <h2 class="card-title">Poached Salmon &amp; Broccoli Sprouts</h2>
         </div>
-        <span class="card-day-num" aria-hidden="true">1</span>
+        <span class="card-day-num">1</span>
       </div>
+
       <div class="compounds">
         <span class="compound-badge">EPA / DHA</span>
         <span class="compound-badge">Sulforaphane</span>
       </div>
+
       <div class="card-divider"></div>
+
       <div class="card-body">
         <div class="ingredients">
           <p class="section-label">Ingredients</p>
           <ul>
-            <li>6 oz wild salmon fillet <span class="ingredient-note">(skin-on for fat)</span></li>
-            <li>1 cup fresh broccoli sprouts</li>
+            <li>6 oz wild salmon fillet <span class="ingredient-note">(skin-on)</span></li>
+            <li>1 cup broccoli sprouts</li>
             <li>½ lemon, sliced</li>
-            <li>2 cups water or light vegetable broth</li>
-            <li>3–4 whole peppercorns</li>
+            <li>2 cups water or light broth</li>
+            <li>3–4 peppercorns</li>
             <li>1 bay leaf</li>
-            <li>Pinch of sea salt</li>
+            <li>Sea salt</li>
           </ul>
         </div>
+
         <div class="prep-steps">
           <p class="section-label">Preparation</p>
           <ol>
-            <li>Bring water or broth to a bare simmer (170–180°F) in a shallow pan with lemon, peppercorns, bay leaf, and salt.</li>
-            <li>Slide salmon in skin-side down. Poach 8–10 min until flesh flakes easily — do not boil.</li>
-            <li>Lift salmon out gently and rest 2 min on a plate.</li>
-            <li>Top with raw broccoli sprouts and a squeeze of fresh lemon. Serve immediately.</li>
+            <li>Bring water or broth to a bare simmer with aromatics.</li>
+            <li>Poach salmon 8–10 minutes at 170–180°F.</li>
+            <li>Rest briefly.</li>
+            <li>Top with raw sprouts and lemon.</li>
           </ol>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- DAY 2 -->
-  <article class="meal-card anchor-target" id="day2">
+  <article class="meal-card" id="day2">
     <div class="card-accent"></div>
     <div class="card-inner">
       <div class="card-header">
         <div>
           <p class="card-date-label">Monday · June 15</p>
-          <h2 class="card-title">Avocado, Cucumber<br>&amp; Herb Bowl</h2>
-          <img class="meal-image" src="https://via.placeholder.com/720x360?text=Avocado+%2B+Cucumber+Herb+Bowl" alt="Avocado and cucumber herb bowl">
-          <p class="image-caption">Raw herbs, vitamin E, and carotenoids in a zero‑cook, low‑stress meal.</p>
+          <h2 class="card-title">Avocado, Cucumber &amp; Herb Bowl</h2>
         </div>
-        <span class="card-day-num" aria-hidden="true">2</span>
+        <span class="card-day-num">2</span>
       </div>
+
       <div class="compounds">
         <span class="compound-badge">Vitamin E</span>
         <span class="compound-badge">Carotenoids</span>
         <span class="compound-badge">Apigenin</span>
         <span class="compound-badge">Silica</span>
       </div>
-      <div class="no-cook-tag">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4.5" stroke="#2D6B36"/><path d="M3 5l1.5 1.5L7 3.5" stroke="#2D6B36" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Zero cooking required
-      </div>
+
       <div class="card-divider"></div>
+
       <div class="card-body">
         <div class="ingredients">
           <p class="section-label">Ingredients</p>
           <ul>
-            <li>1 ripe avocado, cubed</li>
-            <li>1 medium cucumber, sliced</li>
-            <li>¼ cup fresh flat-leaf parsley</li>
-            <li>¼ cup fresh basil leaves</li>
-            <li>2 tbsp fresh mint</li>
+            <li>1 avocado, cubed</li>
+            <li>1 cucumber, sliced</li>
+            <li>Parsley, basil, mint</li>
             <li>1 tbsp lemon juice</li>
-            <li>Flaky sea salt &amp; black pepper</li>
+            <li>Salt & pepper</li>
           </ul>
         </div>
+
         <div class="prep-steps">
           <p class="section-label">Preparation</p>
           <ol>
-            <li>Cube avocado and slice cucumber into half-moons. Place in a wide bowl.</li>
-            <li>Roughly tear parsley, basil, and mint directly over the bowl — tearing releases more polyphenols than chopping.</li>
-            <li>Squeeze lemon juice over everything and toss gently without mashing the avocado.</li>
-            <li>Season with flaky salt and cracked pepper. Eat immediately to preserve vitamin E.</li>
+            <li>Combine avocado and cucumber.</li>
+            <li>Tear herbs over the bowl.</li>
+            <li>Add lemon, salt, and pepper.</li>
           </ol>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- DAY 3 -->
-  <article class="meal-card anchor-target" id="day3">
+  <article class="meal-card" id="day3">
     <div class="card-accent"></div>
     <div class="card-inner">
       <div class="card-header">
         <div>
           <p class="card-date-label">Tuesday · June 16</p>
-          <h2 class="card-title">Kiwi, Chia &amp;<br>Hemp Yogurt Bowl</h2>
-          <img class="meal-image" src="https://via.placeholder.com/720x360?text=Kiwi+Chia+Hemp+Yogurt+Bowl" alt="Kiwi chia hemp yogurt bowl">
-          <p class="image-caption">Vitamin C, fiber, and ALA‑rich seeds in a low‑BCAA, gut‑friendly bowl.</p>
+          <h2 class="card-title">Kiwi, Chia &amp; Hemp Yogurt Bowl</h2>
         </div>
-        <span class="card-day-num" aria-hidden="true">3</span>
+        <span class="card-day-num">3</span>
       </div>
+
       <div class="compounds">
         <span class="compound-badge">Vitamin C</span>
-        <span class="compound-badge">ALA Omega-3</span>
+        <span class="compound-badge">ALA Omega‑3</span>
         <span class="compound-badge">Fiber</span>
-        <span class="compound-badge">Low-BCAA</span>
+        <span class="compound-badge">Low‑BCAA</span>
       </div>
+
       <div class="card-divider"></div>
+
       <div class="card-body">
         <div class="ingredients">
           <p class="section-label">Ingredients</p>
           <ul>
-            <li>¾ cup plain hemp yogurt <span class="ingredient-note">(unsweetened)</span></li>
-            <li>2 ripe kiwis, peeled &amp; sliced</li>
-            <li>1½ tbsp chia seeds</li>
-            <li>1 tbsp hemp hearts</li>
-            <li>1 tsp raw honey <span class="ingredient-note">(optional)</span></li>
-            <li>Pinch of ground cardamom</li>
+            <li>¾ cup hemp yogurt</li>
+            <li>2 kiwis, sliced</li>
+            <li>Chia seeds</li>
+            <li>Hemp hearts</li>
+            <li>Cardamom</li>
           </ul>
         </div>
+
         <div class="prep-steps">
           <p class="section-label">Preparation</p>
           <ol>
-            <li>Spoon hemp yogurt into a bowl as the base.</li>
-            <li>Sprinkle chia seeds over yogurt and let sit 3–5 min to begin softening.</li>
-            <li>Arrange sliced kiwi on top. Scatter hemp hearts and a pinch of cardamom.</li>
-            <li>Drizzle with honey if desired. Serve right away — kiwi's vitamin C degrades quickly once cut.</li>
+            <li>Add yogurt to a bowl.</li>
+            <li>Sprinkle chia and rest briefly.</li>
+            <li>Add kiwi, hemp hearts, cardamom.</li>
           </ol>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- DAY 4 – FASTING -->
-  <article class="meal-card anchor-target" id="day4">
+  <article class="meal-card" id="day4">
     <div class="card-accent"></div>
     <div class="card-inner">
       <div class="card-header">
         <div>
           <p class="card-date-label">Wednesday · June 17</p>
-          <h2 class="card-title">Electrolyte‑Supported<br>Fasting Day</h2>
-          <img class="meal-image" src="https://via.placeholder.com/720x360?text=Fasting+Day+Electrolytes" alt="Glass of water with electrolytes and lemon">
-          <p class="image-caption">A structured fast to lean into autophagy while protecting volume status and minerals.</p>
+          <h2 class="card-title">Electrolyte‑Supported Fasting Day</h2>
         </div>
-        <span class="card-day-num" aria-hidden="true">4</span>
+        <span class="card-day-num">4</span>
       </div>
+
       <div class="compounds">
         <span class="compound-badge">Sodium</span>
         <span class="compound-badge">Potassium</span>
         <span class="compound-badge">Magnesium</span>
         <span class="compound-badge">Autophagy‑supportive</span>
       </div>
+
       <div class="card-divider"></div>
+
       <div class="card-body">
         <div class="ingredients">
           <p class="section-label">Electrolyte protocol</p>
           <ul>
-            <li>24–36 oz water in the morning</li>
-            <li>½ tsp sea salt dissolved in warm water</li>
-            <li>200–300 mg magnesium glycinate <span class="ingredient-note">(optional, evening)</span></li>
-            <li>1 cup mineral water with natural potassium</li>
-            <li>Herbal tea (unsweetened)</li>
+            <li>Water with sea salt</li>
+            <li>Mineral water</li>
+            <li>Herbal tea</li>
+            <li>Optional magnesium</li>
           </ul>
         </div>
+
         <div class="prep-steps">
           <p class="section-label">Guidelines</p>
           <ol>
-            <li>Begin the day with water + sea salt to maintain plasma volume.</li>
-            <li>Drink mineral water throughout the day to support potassium balance.</li>
-            <li>Use magnesium in the afternoon or evening to support muscle relaxation and sleep.</li>
-            <li>Stick to non‑caloric beverages only — no sweeteners.</li>
-            <li>Break the fast gently the next morning with fruit or warm broth.</li>
+            <li>Hydrate with electrolytes.</li>
+            <li>Use mineral water for potassium.</li>
+            <li>Use magnesium later in the day.</li>
+            <li>Avoid caloric intake.</li>
+            <li>Break fast gently the next day.</li>
           </ol>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- DAY 5 – EGG & MUSHROOM (MOVED) -->
-  <article class="meal-card anchor-target" id="day5">
+  <article class="meal-card" id="day5">
     <div class="card-accent"></div>
     <div class="card-inner">
       <div class="card-header">
         <div>
           <p class="card-date-label">Thursday · June 18</p>
-          <h2 class="card-title">Egg-White, Spinach<br>&amp; Mushroom Scramble</h2>
-          <img class="meal-image" src="https://via.placeholder.com/720x360?text=Egg+White+Spinach+Mushroom+Scramble" alt="Egg white scramble with spinach and mushrooms">
-          <p class="image-caption">Low‑BCAA protein with ergothioneine‑rich mushrooms and lutein‑dense greens.</p>
+          <h2 class="card-title">Egg-White, Spinach &amp; Mushroom Scramble</h2>
         </div>
-        <span class="card-day-num" aria-hidden="true">5</span>
+        <span class="card-day-num">5</span>
       </div>
+
       <div class="compounds">
         <span class="compound-badge">Ergothioneine</span>
         <span class="compound-badge">Lutein</span>
-        <span class="compound-badge">Low-BCAA</span>
+        <span class="compound-badge">Low‑BCAA</span>
       </div>
+
       <div class="card-divider"></div>
+
       <div class="card-body">
         <div class="ingredients">
           <p class="section-label">Ingredients</p>
           <ul>
-            <li>4 large egg whites</li>
-            <li>1 cup shiitake or oyster mushrooms, sliced</li>
-            <li>2 big handfuls baby spinach</li>
-            <li>1 clove garlic, minced</li>
-            <li>1 tsp avocado oil</li>
-            <li>Sea salt, black pepper, fresh thyme</li>
-          </ul>
-        </div>
-        <div class="prep-steps">
-          <p class="section-label">Preparation</p>
-          <ol>
-            <li>Set pan to low-medium heat (≤250°F). High heat creates AGEs — keep it gentle.</li>
-            <li>Add avocado oil, then garlic and mushrooms. Sauté 4–5 min until just tender.</li>
-            <li>Add spinach and toss until wilted, about 1 min.</li>
-            <li>Pour egg whites over vegetables. Fold slowly with a silicone spatula. Remove from heat when just set and still slightly glossy. Season with salt, pepper, and thyme.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <!-- SUPPLEMENTS SECTION -->
-  <section class="supplements" id="supplements">
-    <h2 class="supplements-title">Longevity‑Focused Supplement Rhythm</h2>
-    <p class="supplements-sub">
-      These are optional, food‑complementary supplements that pair with this plan’s focus on mitochondrial function, glycation control,
-      and cellular repair. Always clear new supplements with your clinician, especially if you take medications or have liver, kidney,
-      or cardiovascular conditions.
-    </p>
-
-    <div class="supp-grid">
-      <div class="supp-card">
-        <p class="supp-time">Morning · with or after first meal</p>
-        <p class="supp-name">Foundational & Mitochondrial Support</p>
-        <ul class="supp-list">
-          <li><strong>Multivitamin:</strong> covers baseline micronutrient gaps that food may not fully meet.</li>
-          <li><strong>Omega‑3 (EPA/DHA):</strong> complements salmon day and supports lipids, brain, and inflammation tone.</li>
-          <li><strong>CoQ10:</strong> supports mitochondrial electron transport, especially useful if on statins.</li>
-          <li><strong>Astaxanthin:</strong> fat‑soluble antioxidant that pairs well with higher‑fat meals (salmon, avocado).</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-time">Late morning / Midday</p>
-        <p class="supp-name">Metabolic & Glycation Support</p>
-        <ul class="supp-list">
-          <li><strong>ALA (Alpha‑lipoic acid):</strong> supports insulin sensitivity and helps counter glycation.</li>
-          <li><strong>GlyNAC (glycine + NAC):</strong> precursors for glutathione, supporting redox balance and detox pathways.</li>
-          <li><strong>Milk thistle:</strong> gentle liver support, especially relevant with higher xenobiotic load or medications.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-time">Afternoon · away from large meals</p>
-        <p class="supp-name">Cellular Renewal & Autophagy‑Aligned</p>
-        <ul class="supp-list">
-          <li><strong>NR or NMN (B3 derivatives):</strong> support NAD⁺ pools, relevant for mitochondrial and sirtuin activity.</li>
-          <li><strong>Spermidine:</strong> associated with autophagy‑supportive pathways; pairs conceptually with low‑AGE, low‑BCAA days.</li>
-          <li><strong>Urolithin A:</strong> supports mitophagy and mitochondrial quality control, especially alongside fasting or low‑AGE meals.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-time">Evening · with light food or as tolerated</p>
-        <p class="supp-name">Recovery, Sleep & Fasting Support</p>
-        <ul class="supp-list">
-          <li><strong>Magnesium (e.g., glycinate):</strong> supports relaxation, sleep quality, and muscle function.</li>
-          <li><strong>Additional glycine (if not in GlyNAC):</strong> can support sleep architecture and collagen synthesis.</li>
-          <li><strong>On fasting day:</strong> prioritize electrolytes (sodium, potassium, magnesium) and skip calorie‑containing supplements.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>Prepared with care for cellular health · June 14–18, 2025</p>
-  <p style="margin-top:6px;">Low AGEs · Anti-inflammatory · <strong>Dr. EBCGCBFBB</strong></p>
-</footer>
-
-</body>
-</html>
+            <li>4 egg whites</li>
+            <li>1 cup mushrooms</li>
+            <li>Spinach</li>
+            <li>Garlic
