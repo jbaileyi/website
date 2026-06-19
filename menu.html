@@ -1,718 +1,812 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Longevity Meal Plan · June 14–18</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five-Day Protocol — Low-Carb, Low-BCAA Anti-Aging Plan</title>
+<style>
+  :root {
+    --ink: #16201A;
+    --paper: #FAF8F3;
+    --paper-dim: #F1EEE5;
+    --sage: #5B7A63;
+    --sage-deep: #3F5945;
+    --clay: #B6562F;
+    --muted: #8C9388;
+    --line: #DCD7C9;
+    --serif: Georgia, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", serif;
+    --sans: -apple-system, "Inter", "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "IBM Plex Mono", "Liberation Mono", Menlo, Consolas, monospace;
+  }
 
-    :root {
-      --forest: #1A2E1F;
-      --sage: #7A9E7E;
-      --mist: #E8EDE9;
-      --cream: #F7F5F0;
-      --gold: #C8A96E;
-      --text: #2C3A2E;
-      --subtle: #8A9B8C;
-      --white: #FFFFFF;
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
-      --day1: #7A9E7E;
-      --day2: #C8A96E;
-      --day3: #8BAFC4;
-      --day4: #B5916B;
-      --day5: #9E7A8A;
-    }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    body {
-      background: var(--cream);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
+  a { color: var(--sage-deep); }
 
-    .hero {
-      background: var(--forest);
-      padding: 64px 32px 40px;
-      text-align: center;
-      position: relative;
-    }
+  /* ===== Header / Hero ===== */
+  .hero {
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    margin: 0 0 0.9rem;
+    max-width: 18ch;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage-deep);
+  }
+  .hero p.sub {
+    font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+    color: #3a4339;
+    max-width: 46ch;
+    margin: 0 0 1.75rem;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.32rem 0.75rem;
+    color: var(--sage-deep);
+    background: var(--paper-dim);
+  }
 
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 20px;
-    }
+  /* ===== Constraint strip ===== */
+  .constraints {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-dim);
+  }
+  .constraint {
+    padding: 1.1rem clamp(1.25rem, 4vw, 2rem);
+    border-right: 1px solid var(--line);
+  }
+  .constraint:last-child { border-right: none; }
+  .constraint .num {
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    color: var(--sage-deep);
+    display: block;
+  }
+  .constraint .label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
 
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      color: var(--white);
-      margin-bottom: 16px;
-    }
+  /* ===== Day Nav ===== */
+  .day-nav {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    -webkit-overflow-scrolling: touch;
+  }
+  .day-btn {
+    flex: 1 1 auto;
+    min-width: 118px;
+    padding: 0.9rem 0.75rem 0.8rem;
+    background: none;
+    border: none;
+    border-right: 1px solid var(--line);
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--sans);
+    color: var(--ink);
+    transition: background 0.15s ease;
+    position: relative;
+  }
+  .day-btn:hover { background: var(--paper-dim); }
+  .day-btn .d-name {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+  }
+  .day-btn .d-date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .day-btn .d-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+    line-height: 1.25;
+  }
+  .day-btn.active {
+    background: var(--ink);
+  }
+  .day-btn.active .d-name,
+  .day-btn.active .d-date { color: #9fb09f; }
+  .day-btn.active .d-title { color: var(--paper); }
+  .day-btn .fish-dot {
+    display: none;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--clay);
+    position: absolute;
+    top: 0.7rem; right: 0.65rem;
+  }
+  .day-btn.has-fish .fish-dot { display: block; }
 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
+  /* ===== Day Panel ===== */
+  .day-panel { display: none; padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 5vw, 3rem) 4rem; }
+  .day-panel.active { display: block; animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .day-panel.active { animation: none; }
+  }
 
-    .hero-sub {
-      font-size: 15px;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      margin: 0 auto 28px;
-      font-weight: 300;
-    }
+  .day-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .day-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+    margin: 0 0 0.35rem;
+  }
+  .day-head .day-meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--sage-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .carb-badge {
+    font-family: var(--mono);
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .carb-badge .big {
+    font-size: 1.3rem;
+    color: var(--sage-deep);
+    display: block;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .carb-badge .small {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
 
-    .date-nav {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+  .fish-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--clay);
+    border: 1px solid var(--clay);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    margin-top: 0.6rem;
+  }
+  .fish-flag::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--clay);
+  }
 
-    .date-pill {
-      font-size: 12px;
-      font-weight: 500;
-      padding: 7px 16px;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-    }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+  @media (max-width: 820px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
 
-    .main {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 56px 24px 72px;
-    }
+  .block-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .block-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
 
-    .meal-card {
-      background: var(--white);
-      border-radius: 16px;
-      margin-bottom: 32px;
-      box-shadow: 0 2px 16px rgba(26,46,31,0.06);
-      position: relative;
-    }
+  .why-box {
+    background: var(--paper-dim);
+    border-left: 3px solid var(--sage);
+    padding: 1rem 1.15rem;
+    font-size: 0.93rem;
+    color: #34402f;
+    margin-bottom: 1.75rem;
+  }
+  .why-box strong { color: var(--sage-deep); }
 
-    .card-accent {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 4px;
-      border-radius: 16px 0 0 16px;
-    }
+  /* Ingredients */
+  .ingredients { list-style: none; margin: 0 0 1.75rem; padding: 0; }
+  .ingredients li {
+    display: flex;
+    gap: 0.85rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .ingredients li:last-child { border-bottom: none; }
+  .ingredients .amt {
+    font-family: var(--mono);
+    color: var(--sage-deep);
+    flex-shrink: 0;
+    min-width: 88px;
+    font-size: 0.85rem;
+  }
 
-    .meal-card:nth-of-type(1) .card-accent { background: var(--day1); }
-    .meal-card:nth-of-type(2) .card-accent { background: var(--day2); }
-    .meal-card:nth-of-type(3) .card-accent { background: var(--day3); }
-    .meal-card:nth-of-type(4) .card-accent { background: var(--day4); }
-    .meal-card:nth-of-type(5) .card-accent { background: var(--day5); }
+  /* Steps */
+  .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.1rem 2.4rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+  }
+  .steps li::before {
+    content: counter(step);
+    font-family: var(--mono);
+    position: absolute;
+    left: 0; top: -0.1rem;
+    width: 1.65rem; height: 1.65rem;
+    border-radius: 50%;
+    border: 1px solid var(--sage);
+    color: var(--sage-deep);
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 0.82rem; top: 1.75rem; bottom: -0.2rem;
+    width: 1px;
+    background: var(--line);
+  }
+  .steps li::marker { content: none; }
 
-    .card-inner {
-      padding: 24px 32px 28px 40px;
-    }
+  .serve-note {
+    margin-top: 1.4rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+  }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
+  /* Fruit card */
+  .fruit-card {
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--paper-dim);
+    padding: 1rem 1.15rem;
+    border-radius: 6px;
+  }
+  .fruit-card .fc-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .fruit-card .fc-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .fruit-card .fc-compound {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--sage-deep);
+  }
 
-    .card-date-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      margin-bottom: 6px;
-    }
+  /* Supplement column */
+  .supp-list { list-style: none; margin: 0; padding: 0; }
+  .supp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .supp-item:last-child { border-bottom: none; }
+  .supp-item .s-name { font-weight: 600; font-size: 0.94rem; }
+  .supp-item .s-timing {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--sage-deep);
+    text-align: right;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .supp-item .s-reason {
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
+    color: #4a5547;
+  }
 
-    .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      color: var(--forest);
-    }
+  .daily-floor {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--line);
+  }
+  .daily-floor .block-label { margin-bottom: 0.6rem; }
 
-    .card-day-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
-      color: var(--mist);
-    }
+  /* ===== Supplement timing reference (global section) ===== */
+  .timing-section {
+    border-top: 1px solid var(--line);
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+    background: var(--paper-dim);
+  }
+  .timing-section h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 0.5rem;
+  }
+  .timing-section > p {
+    max-width: 56ch;
+    color: #3a4339;
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+  .timing-rail {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 760px) {
+    .timing-rail { grid-template-columns: 1fr; }
+  }
+  .timing-col {
+    background: var(--paper);
+    padding: 1.3rem 1.1rem;
+  }
+  .timing-col h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin: 0 0 0.9rem;
+  }
+  .timing-col ul {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .timing-col li {
+    font-size: 0.88rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--paper-dim);
+  }
+  .timing-col li:last-child { border-bottom: none; }
 
-    .compounds {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 18px;
-    }
+  /* ===== Footer ===== */
+  .disclaimer {
+    border-top: 1px solid var(--line);
+    padding: 2rem clamp(1.25rem, 5vw, 3rem) 3rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 70ch;
+  }
+  .disclaimer p { margin: 0 0 0.6rem; }
 
-    .compound-badge {
-      font-size: 10.5px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 100px;
-      background: var(--mist);
-      color: var(--text);
-    }
-
-    .card-divider {
-      height: 1px;
-      background: var(--mist);
-      margin-bottom: 18px;
-    }
-
-    .card-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .section-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      margin-bottom: 10px;
-    }
-
-    .ingredients ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .ingredients li {
-      font-size: 13.5px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .ingredients li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--sage);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .ingredient-note {
-      font-size: 11px;
-      color: var(--subtle);
-      font-style: italic;
-    }
-
-    .prep-steps ol {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      counter-reset: step;
-    }
-
-    .prep-steps ol li {
-      counter-increment: step;
-      font-size: 13.5px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .prep-steps ol li::before {
-      content: counter(step);
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      border-radius: 50%;
-      background: var(--forest);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-
-    .supplements {
-      margin-top: 40px;
-      padding-top: 28px;
-      border-top: 1px solid var(--mist);
-    }
-
-    .supplements-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-      color: var(--forest);
-    }
-
-    .supplements-sub {
-      font-size: 13px;
-      color: var(--subtle);
-      margin-bottom: 20px;
-      max-width: 640px;
-    }
-
-    .supp-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .supp-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 16px 18px 18px;
-      box-shadow: 0 1px 10px rgba(26,46,31,0.04);
-    }
-
-    .supp-day {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      margin-bottom: 4px;
-    }
-
-    .supp-name {
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 6px;
-      color: var(--forest);
-    }
-
-    .supp-time {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--subtle);
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-
-    .supp-list {
-      font-size: 12.5px;
-      color: var(--text);
-      margin-left: 14px;
-    }
-
-    .supp-list li {
-      margin-bottom: 4px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 24px 40px;
-      font-size: 12px;
-      color: var(--subtle);
-      border-top: 1px solid var(--mist);
-    }
-
-    footer strong { color: var(--sage); }
-
-    @media (max-width: 560px) {
-      .card-inner {
-        padding: 20px 20px 24px 28px;
-      }
-      .card-body {
-        grid-template-columns: 1fr;
-      }
-      .card-day-num {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  /* Focus visibility */
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+  }
+</style>
 </head>
-
 <body>
 
 <header class="hero">
-  <p class="hero-eyebrow">Weekly Meal Plan</p>
-  <h1>Eat for<br><em>Longevity</em></h1>
-  <p class="hero-sub">Five low‑AGE, anti‑inflammatory meals plus one fasting day. Built around bioactive compounds that support cellular repair and mitochondrial health.</p>
-
-  <nav class="date-nav">
-    <a class="date-pill" href="#day1">Sun Jun 14</a>
-    <a class="date-pill" href="#day2">Mon Jun 15</a>
-    <a class="date-pill" href="#day3">Tue Jun 16</a>
-    <a class="date-pill" href="#day4">Wed Jun 17</a>
-    <a class="date-pill" href="#day5">Thu Jun 18</a>
-  </nav>
+  <p class="hero-eyebrow">Sun 5/21 — Thu 5/25 · Personal protocol</p>
+  <h1>One plate a day, built around <em>what actually slows the clock down</em>.</h1>
+  <p class="sub">Five vegetable-forward meals, one fish day, generally low-carb, low BCAA, low sodium,
+  and light on saturated fat — paired with the eleven supplements already in the cabinet, timed for
+  when they actually work best.</p>
 </header>
 
-<main class="main">
+<div class="constraints">
+  <div class="constraint"><span class="num">5</span><span class="label">days, one plate each</span></div>
+  <div class="constraint"><span class="num">1</span><span class="label">fish meal (Wed, poached salmon)</span></div>
+  <div class="constraint"><span class="num">11</span><span class="label">supplements on hand, all mapped</span></div>
+  <div class="constraint"><span class="num">Low</span><span class="label">sodium &amp; saturated fat, every day</span></div>
+</div>
 
-  <article class="meal-card" id="day1">
-    <div class="card-accent"></div>
-    <div class="card-inner">
-      <div class="card-header">
-        <div>
-          <p class="card-date-label">Sunday · June 14</p>
-          <h2 class="card-title">Poached Salmon &amp; Broccoli Sprouts</h2>
-        </div>
-        <span class="card-day-num">1</span>
-      </div>
+<nav class="day-nav" id="dayNav"></nav>
 
-      <div class="compounds">
-        <span class="compound-badge">EPA / DHA</span>
-        <span class="compound-badge">Sulforaphane</span>
-      </div>
+<main id="dayPanels"></main>
 
-      <div class="card-divider"></div>
-
-      <div class="card-body">
-        <div class="ingredients">
-          <p class="section-label">Ingredients</p>
-          <ul>
-            <li>6 oz wild salmon fillet <span class="ingredient-note">(skin-on)</span></li>
-            <li>1 cup broccoli sprouts</li>
-            <li>½ lemon, sliced</li>
-            <li>2 cups water or light vegetable broth</li>
-            <li>3–4 whole peppercorns</li>
-            <li>1 bay leaf</li>
-            <li>Sea salt</li>
-          </ul>
-        </div>
-
-        <div class="prep-steps">
-          <p class="section-label">Preparation</p>
-          <ol>
-            <li>Bring water or broth to a bare simmer with lemon, peppercorns, bay leaf, and salt.</li>
-            <li>Slide salmon in and poach 8–10 minutes at low temperature.</li>
-            <li>Rest briefly on a plate.</li>
-            <li>Top with raw broccoli sprouts and a squeeze of lemon.</li>
-          </ol>
-        </div>
-      </div>
+<section class="timing-section">
+  <h2>When to actually take what</h2>
+  <p>Same eleven supplements, organized by the time of day they work best — independent of which
+  meal you're eating. Fat-soluble compounds need food fat nearby; a couple work better empty-stomach.</p>
+  <div class="timing-rail">
+    <div class="timing-col">
+      <h3>Wake / empty stomach</h3>
+      <ul>
+        <li>Alpha lipoic acid</li>
+        <li>Spermidine</li>
+        <li>GlyNAC (1st dose)</li>
+      </ul>
     </div>
-  </article>
-
-  <article class="meal-card" id="day2">
-    <div class="card-accent"></div>
-    <div class="card-inner">
-      <div class="card-header">
-        <div>
-          <p class="card-date-label">Monday · June 15</p>
-          <h2 class="card-title">Avocado, Cucumber &amp; Herb Bowl</h2>
-        </div>
-        <span class="card-day-num">2</span>
-      </div>
-
-      <div class="compounds">
-        <span class="compound-badge">Vitamin E</span>
-        <span class="compound-badge">Carotenoids</span>
-        <span class="compound-badge">Apigenin</span>
-        <span class="compound-badge">Silica</span>
-      </div>
-
-      <div class="card-divider"></div>
-
-      <div class="card-body">
-        <div class="ingredients">
-          <p class="section-label">Ingredients</p>
-          <ul>
-            <li>1 ripe avocado, cubed</li>
-            <li>1 medium cucumber, sliced</li>
-            <li>¼ cup parsley, torn</li>
-            <li>¼ cup basil leaves, torn</li>
-            <li>2 tbsp mint, torn</li>
-            <li>1 tbsp lemon juice</li>
-            <li>Sea salt and black pepper</li>
-          </ul>
-        </div>
-
-        <div class="prep-steps">
-          <p class="section-label">Preparation</p>
-          <ol>
-            <li>Add avocado and cucumber to a bowl.</li>
-            <li>Tear herbs over the top.</li>
-            <li>Add lemon juice and toss gently.</li>
-            <li>Season with salt and pepper and serve.</li>
-          </ol>
-        </div>
-      </div>
+    <div class="timing-col">
+      <h3>With breakfast</h3>
+      <ul>
+        <li>Standard multivitamin</li>
+        <li>Nicotinamide riboside</li>
+        <li>CoQ10</li>
+      </ul>
     </div>
-  </article>
-
-  <article class="meal-card" id="day3">
-    <div class="card-accent"></div>
-    <div class="card-inner">
-      <div class="card-header">
-        <div>
-          <p class="card-date-label">Tuesday · June 16</p>
-          <h2 class="card-title">Kiwi, Chia &amp; Hemp Yogurt Bowl</h2>
-        </div>
-        <span class="card-day-num">3</span>
-      </div>
-
-      <div class="compounds">
-        <span class="compound-badge">Vitamin C</span>
-        <span class="compound-badge">ALA Omega‑3</span>
-        <span class="compound-badge">Fiber</span>
-        <span class="compound-badge">Low‑BCAA</span>
-      </div>
-
-      <div class="card-divider"></div>
-
-      <div class="card-body">
-        <div class="ingredients">
-          <p class="section-label">Ingredients</p>
-          <ul>
-            <li>¾ cup plain hemp yogurt</li>
-            <li>2 ripe kiwis, peeled and sliced</li>
-            <li>1½ tbsp chia seeds</li>
-            <li>1 tbsp hemp hearts</li>
-            <li>Pinch of ground cardamom</li>
-            <li>1 tsp raw honey <span class="ingredient-note">(optional)</span></li>
-          </ul>
-        </div>
-
-        <div class="prep-steps">
-          <p class="section-label">Preparation</p>
-          <ol>
-            <li>Spoon hemp yogurt into a bowl.</li>
-            <li>Sprinkle chia seeds over the top and let sit 3–5 minutes.</li>
-            <li>Add sliced kiwi, hemp hearts, and cardamom.</li>
-            <li>Drizzle with honey if using and serve promptly.</li>
-          </ol>
-        </div>
-      </div>
+    <div class="timing-col">
+      <h3>With the day's main meal</h3>
+      <ul>
+        <li>Milk thistle</li>
+        <li>Urolithin A</li>
+        <li>Omega-3</li>
+        <li>Astaxanthin</li>
+        <li>Lutein + zeaxanthin</li>
+      </ul>
     </div>
-  </article>
-
-  <article class="meal-card" id="day4">
-    <div class="card-accent"></div>
-    <div class="card-inner">
-      <div class="card-header">
-        <div>
-          <p class="card-date-label">Wednesday · June 17</p>
-          <h2 class="card-title">Electrolyte‑Supported Fasting Day</h2>
-        </div>
-        <span class="card-day-num">4</span>
-      </div>
-
-      <div class="compounds">
-        <span class="compound-badge">Sodium</span>
-        <span class="compound-badge">Potassium</span>
-        <span class="compound-badge">Magnesium</span>
-        <span class="compound-badge">Autophagy‑supportive</span>
-      </div>
-
-      <div class="card-divider"></div>
-
-      <div class="card-body">
-        <div class="ingredients">
-          <p class="section-label">Electrolyte protocol</p>
-          <ul>
-            <li>Water with a pinch of sea salt</li>
-            <li>Mineral water rich in electrolytes</li>
-            <li>Unsweetened herbal tea</li>
-            <li>200–300 mg magnesium glycinate <span class="ingredient-note">(optional)</span></li>
-          </ul>
-        </div>
-
-        <div class="prep-steps">
-          <p class="section-label">Guidelines</p>
-          <ol>
-            <li>Hydrate steadily with water and sea salt.</li>
-            <li>Include mineral water to support potassium intake.</li>
-            <li>Use herbal teas as desired without sweeteners.</li>
-            <li>Take magnesium later in the day if tolerated.</li>
-            <li>Keep the day calorie‑free and break the fast gently the next day.</li>
-          </ol>
-        </div>
-      </div>
+    <div class="timing-col">
+      <h3>Evening</h3>
+      <ul>
+        <li>GlyNAC (2nd dose)</li>
+      </ul>
     </div>
-  </article>
+  </div>
+</section>
 
-  <article class="meal-card" id="day5">
-    <div class="card-accent"></div>
-    <div class="card-inner">
-      <div class="card-header">
-        <div>
-          <p class="card-date-label">Thursday · June 18</p>
-          <h2 class="card-title">Egg-White, Spinach &amp; Mushroom Scramble</h2>
-        </div>
-        <span class="card-day-num">5</span>
-      </div>
-
-      <div class="compounds">
-        <span class="compound-badge">Ergothioneine</span>
-        <span class="compound-badge">Lutein</span>
-        <span class="compound-badge">Low‑BCAA</span>
-      </div>
-
-      <div class="card-divider"></div>
-
-      <div class="card-body">
-        <div class="ingredients">
-          <p class="section-label">Ingredients</p>
-          <ul>
-            <li>4 large egg whites</li>
-            <li>1 cup shiitake or oyster mushrooms, sliced</li>
-            <li>2 big handfuls baby spinach</li>
-            <li>1 clove garlic, minced</li>
-            <li>1 tsp avocado oil</li>
-            <li>Sea salt, black pepper, fresh thyme</li>
-          </ul>
-        </div>
-
-        <div class="prep-steps">
-          <p class="section-label">Preparation</p>
-          <ol>
-            <li>Set a pan over low‑medium heat.</li>
-            <li>Add avocado oil, then garlic and mushrooms; sauté 4–5 minutes.</li>
-            <li>Add spinach and cook until just wilted.</li>
-            <li>Pour in egg whites and fold gently until just set and glossy.</li>
-            <li>Season with salt, pepper, and thyme and serve.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <section class="supplements" id="supplements">
-    <h2 class="supplements-title">Supplement Rhythm</h2>
-    <p class="supplements-sub">
-      This stack assumes one main meal later in the day, with a long fasting window. It pairs each supplement with the meal
-      composition and fasting periods to support mitochondrial function, glycation control, autophagy, and antioxidant balance.
-    </p>
-
-    <div class="supp-grid">
-
-      <div class="supp-card">
-        <p class="supp-day">Sunday · Poached Salmon &amp; Broccoli Sprouts</p>
-        <p class="supp-name">Omega‑rich, anti‑inflammatory meal</p>
-
-        <p class="supp-time">Early waking window</p>
-        <ul class="supp-list">
-          <li><strong>Electrolytes:</strong> water with minerals to support hydration before the feeding window.</li>
-          <li><strong>ALA (alpha‑lipoic acid):</strong> taken away from food to support insulin sensitivity and glycation control.</li>
-        </ul>
-
-        <p class="supp-time">With main meal</p>
-        <ul class="supp-list">
-          <li><strong>Omega‑3 (EPA/DHA):</strong> complements salmon intake and supports lipid and brain health.</li>
-          <li><strong>Astaxanthin:</strong> fat‑soluble antioxidant that pairs well with a higher‑fat fish meal.</li>
-          <li><strong>Multivitamin:</strong> broad micronutrient coverage alongside a nutrient‑dense meal.</li>
-          <li><strong>CoQ10:</strong> taken with fat to support mitochondrial electron transport.</li>
-        </ul>
-
-        <p class="supp-time">Late feeding window</p>
-        <ul class="supp-list">
-          <li><strong>GlyNAC (glycine + NAC):</strong> supports glutathione production and redox balance after the meal.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-day">Monday · Avocado, Cucumber &amp; Herb Bowl</p>
-        <p class="supp-name">Monounsaturated‑rich, polyphenol‑heavy meal</p>
-
-        <p class="supp-time">Early waking window</p>
-        <ul class="supp-list">
-          <li><strong>NR (nicotinamide riboside):</strong> supports NAD⁺ pools and mitochondrial function during the fasting period.</li>
-        </ul>
-
-        <p class="supp-time">With main meal</p>
-        <ul class="supp-list">
-          <li><strong>Multivitamin:</strong> fills micronutrient gaps in a lighter, plant‑forward meal.</li>
-          <li><strong>Astaxanthin:</strong> pairs with avocado fat to enhance absorption and antioxidant coverage.</li>
-          <li><strong>Milk thistle:</strong> gentle liver support alongside herb‑rich, plant‑based intake.</li>
-        </ul>
-
-        <p class="supp-time">Late feeding window</p>
-        <ul class="supp-list">
-          <li><strong>Spermidine:</strong> aligns with a lower‑protein, plant‑heavy day to support autophagy‑related pathways.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-day">Tuesday · Kiwi, Chia &amp; Hemp Yogurt Bowl</p>
-        <p class="supp-name">Low‑BCAA, fiber‑rich, seed‑focused meal</p>
-
-        <p class="supp-time">Early waking window</p>
-        <ul class="supp-list">
-          <li><strong>Urolithin A:</strong> supports mitophagy and mitochondrial quality during the fasting portion of the day.</li>
-        </ul>
-
-        <p class="supp-time">With main meal</p>
-        <ul class="supp-list">
-          <li><strong>Multivitamin:</strong> complements a lighter, low‑BCAA meal.</li>
-          <li><strong>Omega‑3 (EPA/DHA):</strong> adds marine omega‑3s to plant‑based ALA from chia and hemp.</li>
-        </ul>
-
-        <p class="supp-time">Late feeding window</p>
-        <ul class="supp-list">
-          <li><strong>GlyNAC:</strong> supports antioxidant defenses after a high‑fiber, microbiome‑supportive meal.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-day">Wednesday · Electrolyte‑Supported Fasting</p>
-        <p class="supp-name">Deep fasting and autophagy emphasis</p>
-
-        <p class="supp-time">Throughout fasting window</p>
-        <ul class="supp-list">
-          <li><strong>Electrolytes:</strong> sodium, potassium, and magnesium in water to maintain volume and neuromuscular function.</li>
-        </ul>
-
-        <p class="supp-time">Away from any calories</p>
-        <ul class="supp-list">
-          <li><strong>NR:</strong> can be used during fasting to support NAD⁺‑dependent pathways.</li>
-          <li><strong>Spermidine:</strong> conceptually aligned with autophagy‑supportive fasting days.</li>
-          <li><strong>Urolithin A:</strong> reinforces mitophagy focus when no meal is present.</li>
-        </ul>
-
-        <p class="supp-time">Later in the day</p>
-        <ul class="supp-list">
-          <li><strong>Magnesium:</strong> supports relaxation and sleep quality after an extended fast.</li>
-        </ul>
-      </div>
-
-      <div class="supp-card">
-        <p class="supp-day">Thursday · Egg‑White, Spinach &amp; Mushroom Scramble</p>
-        <p class="supp-name">Low‑BCAA protein with ergothioneine‑rich mushrooms</p>
-
-        <p class="supp-time">Early waking window</p>
-        <ul class="supp-list">
-          <li><strong>ALA:</strong> supports glucose handling and glycation control before the feeding window.</li>
-        </ul>
-
-        <p class="supp-time">With main meal</p>
-        <ul class="supp-list">
-          <li><strong>Multivitamin:</strong> supports micronutrient sufficiency with a lean protein meal.</li>
-          <li><strong>CoQ10:</strong> taken with the small amount of fat in the meal to support mitochondrial function.</li>
-          <li><strong>Milk thistle:</strong> pairs with mushroom‑rich intake and hepatic detox pathways.</li>
-        </ul>
-
-        <p class="supp-time">Late feeding window</p>
-        <ul class="supp-list">
-          <li><strong>GlyNAC:</strong> supports glutathione and redox balance after protein intake.</li>
-          <li><strong>Additional magnesium or glycine:</strong> can be used to support relaxation and collagen synthesis.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>Prepared with care for cellular health · June 14–18, 2025</p>
-  <p style="margin-top:6px;">Low AGEs · Anti-inflammatory · <strong>Dr. EBCGCBFBB</strong></p>
+<footer class="disclaimer">
+  <p><strong>Not medical advice.</strong> This is an informational, personal-use meal and supplement
+  reference — not a clinical nutrition or treatment plan. Talk to a doctor before starting or changing
+  any supplement routine, particularly NAD+ precursors, anything affecting glucose metabolism, or
+  long-term high-dose mineral use.</p>
+  <p>Carbs are kept generally low across the week but aren't gram-counted — a couple of days carry a
+  fuller piece of fruit specifically because the compound it brings (quercetin, fisetin, PQQ, ellagic
+  acid) has solid research behind it, not because the day needed more carbs. Sodium and saturated fat
+  were both actively reduced in this plan — no cheese, no butter, low- or no-added-salt broth, and
+  poaching instead of baking or searing on the fish day. "Low-BCAA" reflects a personal preference in
+  how protein was chosen (gelatin from a slow braise, fish, and modest collagen top-ups, with several
+  days built entirely around vegetables and no animal protein at all) — it is not a clinical
+  BCAA-restriction protocol.</p>
 </footer>
+
+<script>
+const days = [
+  {
+    id: "sun",
+    name: "Sunday",
+    date: "5/21",
+    title: "Braised Beef Shin",
+    meta: "The long-cook day",
+    carbLevel: "Low",
+    fish: false,
+    why: "Beef shin and oxtail are connective-tissue cuts — mostly collagen, not muscle fiber. Braised low and slow for hours, that collagen breaks down into gelatin, delivering glycine and proline with far less leucine and isoleucine than the same weight of steak or chicken breast would carry. The broth is low-sodium or unsalted, with vinegar and herbs doing the seasoning work instead of salt — and there's no butter or cheese anywhere on this plate.",
+    ingredients: [
+      ["4 oz", "beef shin or oxtail, bone-in if possible"],
+      ["1.5 cups", "low-sodium (or unsalted, homemade) broth"],
+      ["2 cups", "bok choy, halved lengthwise"],
+      ["1 cup", "cabbage, roughly sliced"],
+      ["1/4 cup", "celery, diced"],
+      ["1/4 cup", "carrot, diced"],
+      ["2 cloves", "garlic, smashed"],
+      ["2 tbsp", "olive oil"],
+      ["—", "apple cider vinegar, fresh herbs, black pepper"],
+      ["1 cup", "blackberries, to serve"]
+    ],
+    steps: [
+      "Pat the beef shin dry and season lightly with pepper — skip heavy salting, since the broth and vinegar will carry most of the flavor. Sear in 1 tbsp olive oil in a heavy pot over medium-high heat, 2–3 minutes per side, until browned.",
+      "Add the garlic, celery, and carrot to the pot. Sauté 2 minutes until fragrant.",
+      "Pour in the broth, bring to a simmer, then cover and drop the heat to low. Braise 2.5–3 hours on the stovetop (or 6–8 hours on low in a slow cooker), until the meat is fork-tender and the liquid has turned glossy and gelatinous.",
+      "In the last 10 minutes, heat the remaining olive oil in a separate pan. Add the cabbage and sauté until just softened, 3–4 minutes, then add the bok choy, cover, and steam-wilt 2–3 minutes more.",
+      "Plate the cabbage and bok choy as the base. Set the braised beef on top and spoon over some of the braising liquid. Finish with a splash of apple cider vinegar and fresh herbs to brighten — no extra salt needed. Serve the blackberries alongside."
+    ],
+fruit: { 
+  icon: `<svg xmlns="http://w3.org" viewBox="0 0 24 24" style="width:1.2em; height:1.2em; vertical-align:middle; display:inline-block;"><path fill="#1A1126" d="M12,7a2,2,0,1,0-2-2A2,2,0,0,0,12,7Z"/><path fill="#150B24" d="M9,9a2,2,0,1,0-2-2A2,2,0,0,0,9,9Z"/><path fill="#1F1430" d="M15,9a2,2,0,1,0-2-2A2,2,0,0,0,15,9Z"/><path fill="#0F051D" d="M12,12a2.5,2.5,0,1,0-2.5-2.5A2.5,2.5,0,0,0,12,12Z"/><path fill="#120720" d="M8,14a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,8,14Z"/><path fill="#180C2A" d="M16,14a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,16,14Z"/><path fill="#0A0214" d="M12,17a2.5,2.5,0,1,0-2.5-2.5A2.5,2.5,0,0,0,12,17Z"/><path fill="#0E051A" d="M8.5,19.5a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,8.5,19.5Z"/><path fill="#110722" d="M15.5,19.5a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,15.5,19.5Z"/><path fill="#05000A" d="M12,22a2.2,2.2,0,1,0-2.2-2.2A2.2,2.2,0,0,0,12,22Z"/><path fill="#4A752C" d="M12,5.5c.3-1,1.5-2.5,2.5-3a4,4,0,0,0-3,1c-.5-.8-1.8-1.5-2.5-1.5.2,1,1,2.5,2,3A3,3,0,0,0,12,5.5Z"/></svg>`, 
+  name: "Blackberries, 1 full cup", 
+  compound: "Ellagic acid + anthocyanins" 
+},    supplements: [
+      ["Milk thistle", "With the meal", "The richest, longest-cooked meal of the week — milk thistle supports the organ doing most of that processing."],
+      ["CoQ10", "With breakfast", "Taken earlier in the day with food, no specific link to this meal."],
+      ["GlyNAC", "Morning + evening", "The glycine half overlaps directly with the glycine already coming from the braised gelatin — the clearest food-supplement match all week."],
+      ["Omega-3", "With the meal", "No fish today, so this is the day's main source of EPA/DHA."]
+    ]
+  },
+  {
+    id: "mon",
+    name: "Monday",
+    date: "5/22",
+    title: "Broccoli & Sprouts Plate",
+    meta: "Sulforaphane day · vegetable-forward",
+    carbLevel: "Low",
+    fish: false,
+    why: "No protein anchor today — just produce, good fat, and a little texture. Broccoli and raw broccoli sprouts stack two forms of the same sulforaphane-delivering plant; sprouts alone carry the highest concentration of any common food. Avocado brings monounsaturated fat and lutein, pumpkin seeds add crunch and a little zinc and magnesium, and lemon does the seasoning work that salt usually would.",
+    ingredients: [
+      ["2 cups", "broccoli florets"],
+      ["1/2 cup", "broccoli sprouts, raw"],
+      ["1/2", "avocado, sliced"],
+      ["1 tbsp", "pumpkin seeds"],
+      ["1 tbsp", "olive oil"],
+      ["1", "lemon, juiced"],
+      ["—", "black pepper"],
+      ["1 cup", "blueberries, to serve"]
+    ],
+    steps: [
+      "Steam the broccoli florets 4–5 minutes, until just tender but still bright green.",
+      "Toast the pumpkin seeds in a dry skillet over medium heat for 2–3 minutes, shaking occasionally, until lightly golden and fragrant.",
+      "Plate the steamed broccoli, drizzle with olive oil and a generous squeeze of lemon juice, and season with pepper — the lemon does most of the flavor lifting in place of salt.",
+      "Scatter the raw broccoli sprouts and toasted pumpkin seeds over the top. Fan the avocado slices alongside.",
+      "Serve the blueberries on the side."
+    ],
+    fruit: { icon: "🫐", name: "Blueberries, 1 full cup", compound: "Anthocyanins" },
+    supplements: [
+      ["Lutein + zeaxanthin", "With the meal", "Fat-soluble — the avocado already on this plate is an ideal absorption vehicle."],
+      ["Alpha lipoic acid", "Morning, empty stomach", "An antioxidant layer that complements the NRF2 activation already happening from the sulforaphane in this meal."],
+      ["Omega-3", "With the meal", "No fish today, so omega-3 fills that gap directly."],
+      ["GlyNAC", "Morning + evening", "The NAC half supports glutathione synthesis — the same general detox direction as sulforaphane, via a different pathway."]
+    ]
+  },
+  {
+    id: "tue",
+    name: "Tuesday",
+    date: "5/23",
+    title: "Mushroom & Spinach Skillet",
+    meta: "Spermidine day · no cheese",
+    carbLevel: "Low-moderate",
+    fish: false,
+    why: "No cheese, no protein anchor — mushrooms, spinach, and fennel or zucchini make up the whole plate, seasoned with herbs and lemon instead of salt. Shiitake, portobello, and cremini are some of the most spermidine-dense foods available, and spermidine is one of the most directly studied triggers for autophagy. The apple gets a full portion today rather than a trimmed-down one: quercetin, concentrated in the skin, is one of the more consistently researched polyphenols in this whole plan.",
+    ingredients: [
+      ["2 cups", "mixed mushrooms (shiitake, portobello, cremini), sliced"],
+      ["2 cups", "fresh spinach"],
+      ["1 cup", "fennel or zucchini, sliced"],
+      ["1 tbsp", "collagen peptides, unflavored"],
+      ["2 tbsp", "olive oil"],
+      ["2 cloves", "garlic, minced"],
+      ["—", "fresh thyme, black pepper, 1 lemon (juiced)"],
+      ["1", "small apple, skin on, sliced"]
+    ],
+    steps: [
+      "Heat 1 tbsp olive oil in a skillet over medium heat. Add the fennel or zucchini and sauté 5–6 minutes until lightly golden. Set aside.",
+      "In the same skillet, add the remaining olive oil and garlic, and sauté 30 seconds. Add the mushrooms and cook 7–8 minutes, stirring occasionally, until they release their liquid and start to brown.",
+      "Stir the collagen peptides into the mushroom pan liquid until fully dissolved — it should look slightly glossy with no clumps.",
+      "Add the spinach directly into the mushroom pan and toss until just wilted, 1–2 minutes.",
+      "Plate the mushroom-spinach mixture with the fennel or zucchini alongside. Finish with a squeeze of lemon, fresh thyme, and black pepper — no salt needed.",
+      "Serve the apple slices on the side."
+    ],
+    fruit: { icon: "🍏", name: "Apple, 1 whole, skin on", compound: "Quercetin" },
+    supplements: [
+      ["Spermidine", "Morning, empty stomach", "Direct reinforcement of the mushroom content — and autophagy itself is generally more active in a fasted state."],
+      ["Urolithin A", "With the meal", "A mitophagy-supporting pairing that fits naturally on the one day with no protein anchor."],
+      ["Alpha lipoic acid", "Morning, empty stomach", "An additional antioxidant layer on the most polyphenol-dense day of the week."],
+      ["Omega-3", "With the meal", "No fish today — fills the EPA/DHA gap."]
+    ]
+  },
+  {
+    id: "wed",
+    name: "Wednesday",
+    date: "5/24",
+    title: "Poached Wild Salmon",
+    meta: "The one fish day",
+    carbLevel: "Low",
+    fish: true,
+    why: "The only fish meal in the five days, and poached rather than baked or seared — the gentlest method, needing no added cooking fat, so the meal's fat profile stays centered on the salmon's own naturally omega-3-rich fat instead of layering on more oil. Asparagus, raw arugula, and softened leeks make up the rest of the plate. Kiwi gets a full portion: PQQ's mitochondrial-support research is a good match for an omega-3-forward day, and kiwi is naturally moderate in sugar.",
+    ingredients: [
+      ["4–5 oz", "wild salmon fillet"],
+      ["1.5 cups", "asparagus, trimmed"],
+      ["2 cups", "arugula"],
+      ["1 cup", "leeks, sliced into half-moons"],
+      ["1 tbsp", "olive oil"],
+      ["1", "lemon, juiced + a few slices"],
+      ["1 cup", "water or light, low-sodium broth, for poaching"],
+      ["—", "a few peppercorns or a bay leaf (optional)"],
+      ["1", "kiwi, sliced"]
+    ],
+    steps: [
+      "Bring the water or broth to a gentle simmer in a wide, shallow pan with a few lemon slices and peppercorns or a bay leaf if using. It should be barely bubbling, not boiling.",
+      "Slide the salmon into the liquid. Poach gently 8–10 minutes, until just opaque and flakes easily with a fork. Lift out carefully with a slotted spatula.",
+      "While the salmon poaches, steam or blanch the asparagus 3–4 minutes until just tender.",
+      "Heat the olive oil in a separate skillet over medium heat, add the leeks, and sauté 6–7 minutes until soft and lightly caramelized.",
+      "Plate the raw arugula as the base — the warm asparagus and salmon will lightly wilt it. Top with the asparagus, place the poached salmon on top, and scatter the leeks around the plate.",
+      "Squeeze fresh lemon juice over the top. Serve the kiwi slices alongside."
+    ],
+    fruit: { icon: "🥝", name: "Kiwi, 1 whole", compound: "PQQ" },
+    supplements: [
+      ["Astaxanthin", "With the meal", "The carotenoid that naturally colors wild salmon pink — about as direct a food-supplement match as exists in this plan."],
+      ["Omega-3", "With the meal", "Worth taking even on the fish day, to keep total EPA/DHA dosing consistent."],
+      ["CoQ10", "With breakfast", "Earlier in the day rather than with this meal, alongside food for absorption."]
+    ]
+  },
+  {
+    id: "thu",
+    name: "Thursday",
+    date: "5/25",
+    title: "Zucchini, Leek & Lettuce Plate",
+    meta: "Lightest day · no cheese, no added salt",
+    carbLevel: "Low",
+    fish: false,
+    why: "No cheese, no protein anchor, no butter — the lightest day of the week for both sodium and saturated fat. One skillet for the warm zucchini and leeks, a quick raw salad alongside, dressed with just olive oil and apple cider vinegar. Strawberries get a full cup: fisetin is one of the more directly studied senolytic compounds, and strawberries are low-sugar enough to support a generous portion.",
+    ingredients: [
+      ["1.5 cups", "zucchini and yellow squash, diced"],
+      ["1 cup", "leeks, sliced"],
+      ["2 cups", "butter lettuce leaves"],
+      ["2 tbsp", "olive oil"],
+      ["1 tsp", "apple cider vinegar"],
+      ["—", "fresh herbs (chives or parsley), black pepper"],
+      ["1 cup", "strawberries, sliced"]
+    ],
+    steps: [
+      "Heat 1 tbsp olive oil in a skillet over medium heat. Add the leeks and sauté 5 minutes until softened. Add the zucchini and squash and continue cooking 5–6 minutes until just tender.",
+      "Toss the butter lettuce with the remaining olive oil, the apple cider vinegar, and black pepper as a simple side salad.",
+      "Plate the warm zucchini and leeks alongside the dressed salad. Scatter fresh herbs on top.",
+      "Serve the strawberries on the side."
+    ],
+    fruit: { icon: "🍓", name: "Strawberries, 1 full cup", compound: "Fisetin" },
+    supplements: [
+      ["Lutein + zeaxanthin", "With the meal", "Taken with the meal's olive oil for absorption."],
+      ["Urolithin A", "With the meal", "No specific dependency on this meal's ingredients — taken consistently with food."],
+      ["Omega-3", "With the meal", "No fish today — keeps the day's EPA/DHA intake consistent."]
+    ]
+  }
+];
+
+const navEl = document.getElementById('dayNav');
+const panelsEl = document.getElementById('dayPanels');
+
+days.forEach((d, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'day-btn' + (i === 0 ? ' active' : '') + (d.fish ? ' has-fish' : '');
+  btn.setAttribute('data-target', d.id);
+  btn.innerHTML = `
+    <span class="fish-dot" title="Fatty fish day"></span>
+    <span class="d-name">${d.name}</span><span class="d-date"> · ${d.date}</span>
+    <span class="d-title">${d.title}</span>
+  `;
+  btn.addEventListener('click', () => selectDay(d.id));
+  navEl.appendChild(btn);
+
+  const panel = document.createElement('section');
+  panel.className = 'day-panel' + (i === 0 ? ' active' : '');
+  panel.id = 'panel-' + d.id;
+
+  const fishFlag = d.fish ? `<div class="fish-flag">The fatty fish day</div>` : '';
+
+  const ingredientsHTML = d.ingredients.map(([amt, item]) =>
+    `<li><span class="amt">${amt}</span><span>${item}</span></li>`
+  ).join('');
+
+  const stepsHTML = d.steps.map(s => `<li>${s}</li>`).join('');
+
+  const supplementsHTML = d.supplements.map(([name, timing, reason]) => `
+    <li class="supp-item">
+      <span class="s-name">${name}</span>
+      <span class="s-timing">${timing}</span>
+      <span class="s-reason">${reason}</span>
+    </li>
+  `).join('');
+
+  panel.innerHTML = `
+    <div class="day-head">
+      <div>
+        <p class="day-meta">${d.meta}</p>
+        <h2>${d.title}</h2>
+        ${fishFlag}
+      </div>
+      <div class="carb-badge">
+        <span class="big">${d.carbLevel}</span>
+        <span class="small">carb level</span>
+      </div>
+    </div>
+
+    <div class="why-box"><strong>Why this plate:</strong> ${d.why}</div>
+
+    <div class="grid-2">
+      <div>
+        <p class="block-label">Ingredients</p>
+        <ul class="ingredients">${ingredientsHTML}</ul>
+
+        <p class="block-label">Prepare it</p>
+        <ol class="steps">${stepsHTML}</ol>
+
+        <div class="fruit-card">
+          <span class="fc-icon">${d.fruit.icon}</span>
+          <div>
+            <div class="fc-name">${d.fruit.name}</div>
+            <div class="fc-compound">${d.fruit.compound}</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="block-label">Supplement pairing for today</p>
+        <ul class="supp-list">${supplementsHTML}</ul>
+        <div class="daily-floor">
+          <p class="block-label">Every day, regardless of meal</p>
+          <ul class="supp-list">
+            <li class="supp-item">
+              <span class="s-name">Standard multivitamin</span>
+              <span class="s-timing">With breakfast</span>
+              <span class="s-reason">Covers baseline B-vitamins and trace minerals underneath everything else.</span>
+            </li>
+            <li class="supp-item">
+              <span class="s-name">Nicotinamide riboside (NR)</span>
+              <span class="s-timing">With breakfast</span>
+              <span class="s-reason">NAD+ precursor, no specific food dependency — taken daily as a foundation.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  `;
+
+  panelsEl.appendChild(panel);
+});
+
+function selectDay(id) {
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-target') === id));
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+}
+</script>
 
 </body>
 </html>
